@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Pizze</mat-card-title>
+   </mat-card-header>
+    <mat-card-content>
+    <mat-selection-list #selectedPizzas>
+      <mat-list-option *ngFor="let pizza of pizzas">
+        {{pizza}}
+      </mat-list-option>
+    </mat-selection-list>
+    <p>
+      Options selected: {{selectedPizzas.selectedOptions.selected.length}}
+    </p>
+  </mat-card-content>
+</mat-card>
