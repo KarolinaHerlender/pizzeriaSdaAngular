@@ -5,8 +5,8 @@ export class Pizza extends Model {
   public static modelName = 'Pizza';
   private name: string;
   private price: number;
-
   Ingredients: Array<Ingredient>;
+
     static get url(): string {
         return environment.api + '/pizzas';
     }
@@ -14,6 +14,7 @@ export class Pizza extends Model {
     constructor(id: string, name: string, price: number, public ingredients: Array<Ingredient>) {
       super(id);
       this.price = price;
+      this.name = name;
     }
     get Name(): string {
         return this.name;

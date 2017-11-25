@@ -8,7 +8,7 @@ export class Ingredient extends Model {
     super(id);
     this.name = name;
   }
-        static get url(): string {
+    static get url(): string {
         return environment.api + '/tasks';
     }
 

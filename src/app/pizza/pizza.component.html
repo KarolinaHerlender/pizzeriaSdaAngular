@@ -3,9 +3,10 @@
     <mat-card-title>Pizze</mat-card-title>
    </mat-card-header>
     <mat-card-content>
+      <input type="text" [(ngModel)]="searchingPizza" />
     <mat-selection-list #selectedPizzas>
-      <mat-list-option *ngFor="let pizza of pizzas">
-        {{pizza}}
+      <mat-list-option *ngFor="let pizza of pizzas | filter:searchingPizza:'name'">
+        {{pizza.name}}
       </mat-list-option>
     </mat-selection-list>
     <p>

@@ -9,18 +9,22 @@ import { BasketComponent } from './basket/basket.component';
 import { AppRoutingModule } from "./app-routing.module";
 import {MatCardModule, MatListModule} from '@angular/material';
 import { PizzaService } from "./pizza/pizza.service";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from "@angular/forms";
+import { FilterPipe } from "./pizza/filter";
 
 @NgModule({
   declarations: [
     AppComponent,
     BasketComponent,
     PizzaComponent,
+    FilterPipe,
   ],
 
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     MatCardModule,
     MatIconModule,
