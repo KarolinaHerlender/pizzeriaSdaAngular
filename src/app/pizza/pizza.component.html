@@ -5,10 +5,33 @@
     <mat-card-content>
       <input type="text" [(ngModel)]="searchingPizza" />
       <mat-list>
-        <mat-list-item (click)="addToBasket(pizza)"
+        <mat-list-item
         *ngFor="let pizza of pizzas | filter:searchingPizza:'name'">
           {{pizza.name}}
+          <p> Składniki: </p>
+          <p *ngFor="let ingredient of pizza.Ingredients" >
+            {{ingredient.Name}},
+          </p>
+          <button (click)="addToBasket(pizza)" mat-raised-button color="primary">Zamów</button>
         </mat-list-item>
       </mat-list>
   </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <mat-list>
+    <mat-list-item *ngFor="let order of orders">
+      {{order.pizza.Name}}
+      <p> Dodatkowo: </p>
+      <p *ngFor="let ingredient of order.ingredients" >
+        {{ingredient.Name}},
+      </p>
+    </mat-list-item>
+  </mat-list>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button >Anuluj</button>
+    <button mat-button > Zamawiam</button>
+  </mat-card-actions>
 </mat-card>

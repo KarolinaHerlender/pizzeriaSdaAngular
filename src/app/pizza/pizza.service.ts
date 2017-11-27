@@ -54,12 +54,12 @@ export class PizzaService {
           pizzaObjects.push(new Pizza(iPizza._id, iPizza.name,
             iPizza.cost, pizzaIngredients));
           console.log('pizzaIngredients ', pizzaIngredients);
-          console.log('pizzaObjects ', pizzaObjects);
         });
           // create pizza
+        console.log('pizzaObjects ', pizzaObjects);
 
         let pizzaWithIngredients: [Array<Pizza>, Array<Ingredient>];
-        pizzaWithIngredients = [pizzasList as any as Array<Pizza>,
+        pizzaWithIngredients = [pizzaObjects,
                                 ingredientObjects];
         return pizzaWithIngredients;
       });
