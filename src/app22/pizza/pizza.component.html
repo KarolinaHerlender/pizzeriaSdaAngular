@@ -1,8 +1,0 @@
-
-
-    <mat-selection-list>
-      <h3 mat-subheader>Pizze</h3>
-      <mat-list-option #opt (click)="addPizza(opt)" *ngFor="let pizza of pizzas" value="{{pizza.Id}}">
-        {{pizza.Name}}{{pizza.Price}}
-      </mat-list-option>
-    </mat-selection-list>

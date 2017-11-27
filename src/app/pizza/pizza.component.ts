@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PizzaService } from "./pizza.service";
 import { Pizza } from "./models/pizza.model";
+import { Ingredient } from "./models/ingredients.model";
 
 @Component({
   selector: 'app-pizza',
@@ -9,15 +10,19 @@ import { Pizza } from "./models/pizza.model";
 })
 export class PizzaComponent implements OnInit {
   pizzas: Array<Pizza>;
-  searchingPizza: string;
+  basket: Array<Pizza>;
   constructor(private pizzaService: PizzaService) { }
 
   ngOnInit() {
+    this.basket = new Array();
     this.pizzaService.getPizzas()
-    .subscribe((newPizzas: Array<Pizza>) => {
+    .subscribe(([newPizzas, newIngredients]: [Array<Pizza>, Array<Ingredient>]) => {
       console.log('newPizzas', newPizzas);
       this.pizzas = newPizzas;
     }, (error: any) => console.log('Mamy errory!', error));
   }
 
+  addToBasket(pizza: Pizza) {
+    this.basket.push(pizza);
+  }
 }

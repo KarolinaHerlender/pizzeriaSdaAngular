@@ -2,9 +2,8 @@ import { Model } from './model';
 import { environment } from "../../../environments/environment";
 export class Ingredient extends Model {
   private name: string;
-  private price: number;
 
-  constructor(id: string, name: string) {
+  constructor(id: string, name: string, private can_add: boolean, private price:number) {
     super(id);
     this.name = name;
   }
@@ -23,5 +22,8 @@ export class Ingredient extends Model {
     }
     set Price(name: number) {
         this.price = name;
+    }
+    get canAdd(): boolean {
+      return this.can_add;
     }
 }
