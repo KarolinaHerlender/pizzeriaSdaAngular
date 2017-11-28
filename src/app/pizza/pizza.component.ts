@@ -4,11 +4,8 @@ import { Pizza } from "./models/pizza.model";
 import { Ingredient } from "./models/ingredients.model";
 import { OrderComponent } from "../order/order.component";
 import { MatDialog } from "@angular/material/dialog";
+import { Order, AppService } from "../app.service";
 
-interface Order {
-  pizza: Pizza,
-  ingredients: Array<Ingredient>
-}
 
 @Component({
   selector: 'app-pizza',
@@ -20,7 +17,7 @@ export class PizzaComponent implements OnInit {
   basket: Array<Pizza>;
   orders: Array<Order>;
   ingredients: Array<Ingredient>;
-  constructor(public dialog: MatDialog,
+  constructor(public dialog: MatDialog, private appService: AppService,
     private pizzaService: PizzaService) { }
 
   ngOnInit() {
@@ -45,8 +42,9 @@ export class PizzaComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result: Order) => {
       console.log('After closer: ', result);
-      this.orders.push(result);
-      console.log('After closer: ', this.orders);
+      // this.orders.push(result);
+      this.appService.addNewOrder(result);
+      console.log('After closer: ', this.appService.getOrders());
     });
   }
 }

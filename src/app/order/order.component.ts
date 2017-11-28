@@ -24,9 +24,6 @@ export class OrderComponent implements OnInit {
     this.ingredients = this.data.ingredients;
     console.log('order pizza ', this.orderPizza);
   }
-  closeDialog() {
-    this.dialogRef.close(false);
-  }
 
   changeOrder(ingredient: Ingredient) {
     let index = this.selectedIngredients.indexOf(ingredient);
@@ -41,5 +38,8 @@ export class OrderComponent implements OnInit {
     console.log('this selected ', this.selectedIngredients);
     this.dialogRef.close({pizza: this.orderPizza,
       ingredients: this.selectedIngredients});
+  }
+  closeDialog() {
+    this.dialogRef.close(false);
   }
 }

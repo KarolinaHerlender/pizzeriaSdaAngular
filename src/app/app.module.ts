@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { FilterPipe } from "./pizza/filter";
 import { OrderComponent } from './order/order.component';
+import { AppService } from "./app.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { OrderComponent } from './order/order.component';
     MatTabsModule,
     BrowserAnimationsModule
   ],
-  providers: [PizzaService],
+  providers: [AppService, PizzaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

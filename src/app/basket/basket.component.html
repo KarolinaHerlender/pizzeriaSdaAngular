@@ -1,3 +1,22 @@
-<p>
-  basket works!
-</p>
+<!-- <div *ngIf="orders !== []"> -->
+  <h3>Właśnie zamówiłaś:</h3>
+  <mat-card>
+    <mat-card-content>
+      <mat-list>
+      <mat-list-item *ngFor="let order of orders">
+        {{order.pizza.Name}}
+        <p> Dodatkowo: </p>
+        <p *ngFor="let ingredient of order.ingredients" >
+          {{ingredient.Name}},
+        </p>
+        <mat-icon (click)="removePizza(order)">close</mat-icon>
+      </mat-list-item>
+    </mat-list>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button >Anuluj</button>
+      <button mat-button (click)="confirm()"> Zamawiam</button>
+    </mat-card-actions>
+  </mat-card>
+<!-- </div> -->
