@@ -34,16 +34,14 @@ export class AppService {
   }
 
   sendOrder(): Observable<any> {
-    // let order: Order = this.orders[0];
-    // let apiOrder: ApiOrder = {
-    //   pizza: order.pizza.Id,
-    //   ingredients: order.ingredients
-    //     .map((ingredient: Ingredient) => ingredient.Id)
-    // }
-    // console.log('Normal order ', order);
-    // console.log('Mapped ApiOrder ', apiOrder);
-    let mama = '22' as any;
-    let i = '221' as any;
-    return this.http.post(mama, i);
+    let order: Order = this.orders[0];
+    let apiOrder: ApiOrder = {
+      pizza: order.pizza.Id,
+      ingredients: order.ingredients
+        .map((ingredient: Ingredient) => ingredient.Id)
+    }
+    console.log('Normal order ', order);
+    console.log('Mapped ApiOrder ', apiOrder);
+    return this.http.post(orderUrl, apiOrder);
   }
 }
