@@ -1,6 +1,7 @@
 import { Ingredient } from './ingredients.model';
 import { Model } from "./model";
 import { environment } from "../../../environments/environment";
+
 export class Pizza extends Model {
   public static modelName = 'Pizza';
   private name: string;
@@ -10,7 +11,9 @@ export class Pizza extends Model {
         return environment.api + '/pizzas';
     }
 
-    constructor(id: string, name: string, price: number, public Ingredients: Array<Ingredient>) {
+    constructor(id: string, name: string,
+      price: number,
+      public Ingredients: Array<Ingredient>) {
       super(id);
       this.price = price;
       this.name = name;
@@ -19,7 +22,7 @@ export class Pizza extends Model {
         return this.name;
     }
     set Name(name: string) {
-        this.name = name;
+        this.name = 'Pizza ' + name;
     }
     get Price(): number {
         return this.price;
