@@ -9,7 +9,7 @@ export interface Order {
   pizza: Pizza;
   ingredients: Array<Ingredient>
 }
-const orderUrl = environment.api + '/pizzaOrders';
+export const orderUrl = environment.api + '/pizzaOrders';
 
 export interface ApiOrder {
   pizza: string;
@@ -40,8 +40,6 @@ export class AppService {
       ingredients: order.ingredients
         .map((ingredient: Ingredient) => ingredient.Id)
     }
-    console.log('Normal order ', order);
-    console.log('Mapped ApiOrder ', apiOrder);
     return this.http.post(orderUrl, apiOrder);
   }
 }

@@ -14,6 +14,7 @@ import { FormsModule } from "@angular/forms";
 import { FilterPipe } from "./pizza/filter";
 import { OrderComponent } from './order/order.component';
 import { AppService } from "./app.service";
+import { NewFilterPipe } from './new-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AppService } from "./app.service";
     PizzaComponent,
     FilterPipe,
     OrderComponent,
+    NewFilterPipe,
   ],
   entryComponents: [
     OrderComponent
